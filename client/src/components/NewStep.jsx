@@ -41,7 +41,7 @@ export default function NewStep({ steps, setSteps, levels }) {
 
         newStep.leveltitle = stepLevel.leveltitle;
        
-        setSteps([...steps, newStep])
+        setSteps([newStep, ...steps])
     
 
       })
