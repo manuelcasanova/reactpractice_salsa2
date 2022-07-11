@@ -42,7 +42,7 @@ export default function StepList({ steps, setSteps, levels }) {
               <td>{step.steptitle}</td>
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
-              <td><EditStep step={step} levels={levels} /></td>
+              <td><EditStep step={step} levels={levels} steps={steps} setSteps={setSteps}/></td>
               <td><button
               onClick={() => deleteStep(step.stepid)}
               >
