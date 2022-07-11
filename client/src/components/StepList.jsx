@@ -25,7 +25,7 @@ export default function StepList({ steps }) {
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
               <td>Edit</td>
-              <td>Delete</td>
+              <td><button>Delete</button></td>
             </tr>)}
         </tbody>
 
