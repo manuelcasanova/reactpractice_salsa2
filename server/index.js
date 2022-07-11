@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const port = 8001;
 const cors = require("cors");
+const pool = require('./db')
 
 //const bodyparser = require("body-parser");//Does same as express.json
 
