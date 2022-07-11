@@ -53,3 +53,18 @@ app.post("/steps", async (req, res) => {
     console.error(err.message)
   }
 })
+
+//Remove a step
+
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    console.log("Deleted step id:", id);
+    const deleteStep = await pool.query(
+      "DELETE FROM steps WHERE stepid = $1 RETURNING *", [id]
+    )
+    res.json("Step was deleted")
+  } catch (err) {
+    console.error(err.message)
+  }
+})
