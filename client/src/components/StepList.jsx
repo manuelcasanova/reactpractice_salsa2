@@ -11,7 +11,7 @@ export default function StepList({ steps, setSteps, levels }) {
   function deleteStep(stepId) {
     return axios.delete(`${URL}/delete/${stepId}`)
       .then(res => {
-        setSteps(steps.filter(step => step.stepId !== stepId))
+        setSteps(steps.filter(step => step.stepid !== stepId))
         console.log("Step deleted id:", stepId)
       })
       
