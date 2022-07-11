@@ -39,7 +39,9 @@ export default function EditStep({ step }) {
            {/* Modal footer */}
           <div className="modal-footer">
             <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-danger" data-dismiss="modal">Edit</button>
+            <button type="button" className="btn btn-danger" data-dismiss="modal"
+            onClick={e => editStep(e)}
+            >Edit</button>
           </div>
     
         </div>
