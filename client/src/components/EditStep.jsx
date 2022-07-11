@@ -1,13 +1,32 @@
 import { useState } from "react"
 
-export default function EditStep({ step }) {
+const URL = 'http://localhost:8001'
+
+export default function EditStep({ step, levels }) {
 
   const [stepTitle, setStepTitle] = useState(step.steptitle);
-  const [stepLevel, setStepLevel] = useState(step.leveltitle);
-  const [stepPronunciation, setStepPronunciation] = useState(step.steppronunciation);
-  const [stepVideo, setStepVideo] = useState(step.stepvideo);
-  const [stepVideoBreakdown, setStepVideoBreakdown] = useState(step.stepvideobreakdown);
+  const [stepLevel_id, setStepLevel_id] = useState(step.steplevel_id);
+  // const [stepPronunciation, setStepPronunciation] = useState(step.steppronunciation);
+  // const [stepVideo, setStepVideo] = useState(step.stepvideo);
+  // const [stepVideoBreakdown, setStepVideoBreakdown] = useState(step.stepvideobreakdown);
   
+
+  //This edit function is called from the onClick on edit button
+
+  const editStep = async(e) => {
+    e.preventDefault()
+    try {
+      const body = {stepTitle, stepLevel_id};
+      const response = await fetch(`${URL}/steps/${step.stepid}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+      })
+      console.log(response)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
   return (
     <div className='EditStepModal'>
@@ -28,12 +47,34 @@ export default function EditStep({ step }) {
           </div>
     
            {/* Modal body */}
+           <label className="modal-body" htmlFor="title">Step</label>
           <div className="modal-body">
             <input type="text" 
             className="form-control" 
             value={stepTitle}
             onChange={e => setStepTitle(e.target.value)}
              />
+          </div>
+
+          <label className="add_step_title" htmlFor="title">Level</label>
+          <div className="modal-body">
+            <select
+              className="form-control"
+              value={stepLevel_id}
+              //Change the stepLevel state. Then on clicking on the Edit button at the modal footer, send the information
+              onChange={e => setStepLevel_id(e.target.value)} >
+
+{/* {console.log("steplevelid after change", stepLevelId)} */}
+
+              {levels.map((level) =>
+                <option 
+                key={level.levelid}
+                value={level.levelid}>
+                  
+                  {level.leveltitle}
+                </option>
+              )}
+            </select>
           </div>
     
            {/* Modal footer */}
