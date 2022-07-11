@@ -15,3 +15,26 @@ app.listen(port, () => {
   console.log(`Casino app running on port ${port}.`);
 });
 
+//Routes and queries//
+
+//Get all steps
+
+app.get("/steps", async (req, res) => {
+  try {
+    const getAllSteps = await pool.query('SELECT * FROM steps');
+    res.json(getAllSteps.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+})
+
+//Get all levels
+
+app.get("/levels", async (req, res) => {
+  try {
+    const getAllLevels = await pool.query("SELECT * from levels");
+    res.json(getAllLevels.rows)
+  } catch (err) {
+    console.error(err.message);
+  }
+})
