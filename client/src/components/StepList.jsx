@@ -5,7 +5,7 @@ const URL = 'http://localhost:8001'
 
 
 
-export default function StepList({ steps, setSteps }) {
+export default function StepList({ steps, setSteps, levels, setLevels }) {
   
 
   function deleteStep(stepId) {
@@ -42,7 +42,7 @@ export default function StepList({ steps, setSteps }) {
               <td>{step.steptitle}</td>
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
-              <td><EditStep step={step}/></td>
+              <td><EditStep step={step} levels={levels} setLevels = {setLevels} /></td>
               <td><button
               onClick={() => deleteStep(step.stepid)}
               >

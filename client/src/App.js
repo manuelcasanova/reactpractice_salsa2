@@ -33,7 +33,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <StepList steps={steps} setSteps={setSteps}/>
+      <StepList steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels}/>
       <LevelList levels={levels} />
       <NewStep steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels}/>
       <NewLevel />
