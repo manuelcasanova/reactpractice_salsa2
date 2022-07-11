@@ -38,3 +38,16 @@ app.get("/levels", async (req, res) => {
     console.error(err.message);
   }
 })
+
+//Add a step
+
+app.post("/steps", async (req, res) => {
+  try {
+    const {stepTitle, stepLevel, stepPronunciation, stepVideo, stepVideoBreakdown} = req.body;
+    console.log("reqbody", req.body)
+    const newStep = await pool.query("INSERT INTO steps (steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown) VALUES($1, $2, $3, $4, $5) RETURNING *", [stepTitle, stepLevel, stepPronunciation, stepVideo, stepVideoBreakdown])
+    res.json(newStep.rows[0]);
+  } catch (err) {
+    console.error(err.message)
+  }
+})
