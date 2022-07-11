@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 
-export default function NewStep({ steps, setSteps, levels, setLevels }) {
+export default function NewStep({ steps, setSteps, levels }) {
 
   const URL = 'http://localhost:8001'
 
@@ -31,10 +31,18 @@ export default function NewStep({ steps, setSteps, levels, setLevels }) {
 
 
     return axios.post(`${URL}/steps`,
-      step) //payload (see inspect)
+      step)
       .then((response) => {
-        setSteps([...steps, response.data])
-        //console.log("post response data", response.data)
+        const newStep = response.data;
+
+        const stepLevel = levels.find((level) => {
+          return level.levelid === newStep.steplevel_id
+        })
+
+        newStep.leveltitle = stepLevel.leveltitle;
+       
+        setSteps([...steps, newStep])
+    
 
       })
   }
@@ -107,7 +115,7 @@ export default function NewStep({ steps, setSteps, levels, setLevels }) {
 
         <div>stepTitle State: {stepTitle}</div>
         <div>stepLevel State: {stepLevel}</div>
-        {/* <div>stepLevelId State: {stepLevelId}</div> */}
+    
 
       </div>
 
