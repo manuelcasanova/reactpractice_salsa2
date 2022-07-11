@@ -22,7 +22,7 @@ export default function StepList({ steps }) {
           {steps.map(step =>
             <tr key={step.stepid}>
               <td>{step.steptitle}</td>
-              <td>{step.steplevel_id}</td>
+              <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
               <td>Edit</td>
               <td>Delete</td>

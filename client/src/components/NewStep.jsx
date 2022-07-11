@@ -20,7 +20,7 @@ export default function NewStep({ steps, setSteps, levels, setLevels }) {
       stepVideo,
       stepVideoBreakdown
     }
-    // console.log("step on submit", step)
+    //console.log("step on submit", step)
     addStep(step);
     resetForm();
   }
@@ -34,7 +34,7 @@ export default function NewStep({ steps, setSteps, levels, setLevels }) {
       step) //payload (see inspect)
       .then((response) => {
         setSteps([...steps, response.data])
-        // console.log("post response data", response.data)
+        //console.log("post response data", response.data)
 
       })
   }

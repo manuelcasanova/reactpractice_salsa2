@@ -21,7 +21,9 @@ app.listen(port, () => {
 
 app.get("/steps", async (req, res) => {
   try {
-    const getAllSteps = await pool.query('SELECT * FROM steps');
+    const getAllSteps = await pool.query(
+      'SELECT stepid, steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown, leveltitle FROM steps JOIN levels on levels.levelid = steps.steplevel_id'
+      );
     res.json(getAllSteps.rows);
   } catch (err) {
     console.error(err.message);
