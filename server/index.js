@@ -75,10 +75,12 @@ app.put("/steps/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const {
-      steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown
+      stepTitle, stepLevel_id, steppronunciation, stepvideo, stepvideobreakdown
     } = req.body
-    const editStep = await pool.query('UPDATE steps SET steptitle = $1, steplevel_id = $2, steppronunciation = $3, stepvideo = $4, stepVideoBreakdown = $5 WHERE stepid = $6', [steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown, id]);
+    console.log("rq body", req.body)
+    const editStep = await pool.query('UPDATE steps SET stepTitle = $1, stepLevel_id = $2, steppronunciation = $3, stepvideo = $4, stepVideoBreakdown = $5 WHERE stepid = $6', [stepTitle, stepLevel_id, steppronunciation, stepvideo, stepvideobreakdown, id]);
     res.json("Step was updated")
+    
   } catch (err) {
     console.error(err.message)
   }
