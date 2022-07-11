@@ -1,5 +1,6 @@
 import { useState } from "react"
 import StepList from "./StepList";
+import axios from "axios";
 
 const URL = 'http://localhost:8001'
 
@@ -17,33 +18,39 @@ export default function EditStep({ step, levels, steps, setSteps }) {
   const editStep = async (e) => {
     e.preventDefault()
     try {
-      const body = { stepTitle, stepLevel_id };
+      const body = {stepTitle, stepLevel_id };
       const response = await fetch(`${URL}/steps/${step.stepid}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       })
+      axios.get(`${URL}/steps`)
+      .then(function (res) {
+        setSteps([...res.data])
+        //console.log("axios res.data - steps State", res.data)
+      })
 
       //Prints the array of objects containing the steps from the db
-      console.log("steps", steps)
+      //console.log("steps", steps)
 
       //Creates a copy of the edited step
-      const editedStep = body;
-      console.log("editedstep", editedStep)
+      //const editedStep = body;
+      //console.log("edited step", editedStep)
+      
 
       //FIND: Would return the value of the first element that does not match the id. But we want all of them. Similar to map. Then we probably need FILTER. Gets all the elements in the array that do not match the id.
 
       //I believe this should return all the steps from the db except the one edited. But it return all of them.
 
-      const filteredSteps = steps.filter(step => step.stepLevel_id !== editedStep.stepLevel_id)
+      // const filteredSteps = steps.filter(step => step.steplevel_id !== editedStep.stepLevel_id)
 
-      // const filteredSteps = steps.filter((step) => {
-      //   return step.stepLevel_id !== editedStep.stepLevel_id
-      // })
+    //   const filteredSteps = steps.filter((step) => {
+    //     return step.steplevel_id !== editedStep.stepLevel_id
+    //   })
 
-      console.log("filteredSteps", filteredSteps)
+    //  console.log("filteredSteps", filteredSteps)
 
-
+      // setSteps([...steps, editedStep])
 
       // setSteps(list of steps in the db without the new step + edited step)
 
