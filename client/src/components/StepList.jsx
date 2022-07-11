@@ -1,4 +1,18 @@
-export default function StepList({ steps }) {
+import axios from "axios"
+const URL = 'http://localhost:8001'
+
+export default function StepList({ steps, setSteps }) {
+  
+
+  function deleteStep(stepId) {
+    return axios.delete(`${URL}/delete/${stepId}`)
+      .then(res => {
+        setSteps(steps.filter(step => step.stepId !== stepId))
+        console.log("Step deleted id:", stepId)
+      })
+      
+  } 
+  
   return (
 
     <>
@@ -25,7 +39,10 @@ export default function StepList({ steps }) {
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
               <td>Edit</td>
-              <td><button>Delete</button></td>
+              <td><button
+              onClick={() => deleteStep(step.stepid)}
+              >
+                Delete</button></td>
             </tr>)}
         </tbody>
 
