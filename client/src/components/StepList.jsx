@@ -1,5 +1,9 @@
 import axios from "axios"
+import EditStep from "./EditStep"
+
 const URL = 'http://localhost:8001'
+
+
 
 export default function StepList({ steps, setSteps }) {
   
@@ -38,7 +42,7 @@ export default function StepList({ steps, setSteps }) {
               <td>{step.steptitle}</td>
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
-              <td>Edit</td>
+              <td><EditStep /></td>
               <td><button
               onClick={() => deleteStep(step.stepid)}
               >
