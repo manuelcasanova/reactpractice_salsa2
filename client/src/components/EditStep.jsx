@@ -29,7 +29,7 @@ export default function EditStep({ step }) {
     
            {/* Modal body */}
           <div className="modal-body">
-            Modal body..
+            <input type="text" className="form-control" value={stepTitle} />
           </div>
     
            {/* Modal footer */}
