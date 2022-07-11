@@ -33,8 +33,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <StepList />
-      <LevelList />
+      <StepList steps={steps}/>
+      <LevelList levels={levels} />
       <NewStep />
       <NewLevel />
     </div>
