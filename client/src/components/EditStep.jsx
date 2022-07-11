@@ -1,5 +1,13 @@
+import { useState } from "react"
+
 export default function EditStep({ step }) {
 
+  const [stepTitle, setStepTitle] = useState(step.steptitle);
+  const [stepLevel, setStepLevel] = useState(step.leveltitle);
+  const [stepPronunciation, setStepPronunciation] = useState(step.steppronunciation);
+  const [stepVideo, setStepVideo] = useState(step.stepvideo);
+  const [stepVideoBreakdown, setStepVideoBreakdown] = useState(step.stepvideobreakdown);
+  
 
   return (
     <div className='EditStepModal'>
