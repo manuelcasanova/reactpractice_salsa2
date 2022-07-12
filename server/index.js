@@ -88,7 +88,7 @@ app.put("/steps/:id", async (req, res) => {
 
 //Remove a level
 
-app.delete("/delete/:id", async (req, res) => {
+app.delete("/levels/delete/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     console.log("Deleted level id:", id);
