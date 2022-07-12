@@ -34,7 +34,7 @@ app.get("/steps", async (req, res) => {
 
 app.get("/levels", async (req, res) => {
   try {
-    const getAllLevels = await pool.query("SELECT * from levels");
+    const getAllLevels = await pool.query("SELECT * from levels ORDER BY levelid DESC");
     res.json(getAllLevels.rows)
   } catch (err) {
     console.error(err.message);
