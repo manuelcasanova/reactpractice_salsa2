@@ -2,6 +2,7 @@ import './App.css';
 import StepList from './components/StepList';
 import LevelList from './components/LevelList';
 import NewStep from './components/NewStep';
+import NewStep2 from './components/NewStep2';
 import NewLevel from './components/NewLevel';
 
 import { useState, useEffect } from 'react';
@@ -35,7 +36,8 @@ useEffect(() => {
     <div className="App">
       <StepList steps={steps} setSteps={setSteps} levels={levels} />
       <LevelList levels={levels} setLevels={setLevels} />
-      <NewStep steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels}/>
+      {/* <NewStep steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels}/> */}
+      <NewStep2 steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels}/>
       <NewLevel levels={levels} setLevels={setLevels}/>
     </div>
   );
