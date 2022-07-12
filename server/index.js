@@ -113,3 +113,20 @@ app.post("/levels", async (req, res) => {
     console.error(err.message)
   }
 })
+
+//Edit a level
+
+app.put("/levels/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      levelTitle, levelDescription
+    } = req.body
+    console.log("rq body", req.body)
+    const editLevel = await pool.query('UPDATE levels SET levelTitle = $1, levelDescription = $2 WHERE levelid = $3', [levelTitle, levelDescription, id]);
+    res.json("Level was updated")
+    
+  } catch (err) {
+    console.error(err.message)
+  }
+})
