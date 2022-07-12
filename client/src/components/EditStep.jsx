@@ -67,12 +67,12 @@ export default function EditStep({ step, levels, steps, setSteps }) {
   return (
     <div className='EditStepModal'>
       {/* Button to Open the Modal */}
-      <button type="button" className="button_edit" data-toggle="modal" data-target="#editstepmodal">
+      <button type="button" className="button_edit" data-toggle="modal" data-target={`#id${step.stepid}`}>
         Edit
       </button>
 
       {/* The Modal */}
-      <div className="modal" id="editstepmodal">
+      <div className="modal" id={`id${step.stepid}`}>
         <div className="modal-dialog">
           <div className="modal-content">
 

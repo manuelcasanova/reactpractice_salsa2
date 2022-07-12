@@ -39,12 +39,12 @@ export default function EditLevel ({level, levels, setLevels, setSteps}) {
   return (
     <div className='EditLevelModal'>
       {/* Button to Open the Modal */}
-      <button type="button" className="button_edit" data-toggle="modal" data-target="#editlevelmodal">
+      <button type="button" className="button_edit" data-toggle="modal" data-target={`#id${level.levelid}`}>
         Edit
       </button>
 
       {/* The Modal */}
-      <div className="modal" id="editlevelmodal">
+      <div className="modal" id={`id${level.levelid}`}>
         <div className="modal-dialog">
           <div className="modal-content">
 
