@@ -1,0 +1,35 @@
+.button_submit {
+  margin-top: 0.5em;
+}
+
+input {
+  background-color: #e7e7e7;
+  border: none;
+  border-bottom: solid;
+  border-width: thin;
+}
+
+.formtitle {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.formcolumn {
+  margin-top: 2em;
+  font-weight: bold;
+}
+
+.selectlevel {
+  background-color: #e7e7e7;
+  margin-top: 2em;
+}
+
+input {
+  margin-top: 2em;
+}
+
+.newlevelform, .newstepform {
+  border-style: dotted;
+  border-width: thin;
+  padding: 1em;
+}

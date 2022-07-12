@@ -1,4 +1,5 @@
 import './App.css';
+import './onlytwomodals.css'
 import StepList from './components/StepList';
 import LevelList from './components/LevelList';
 import NewStep2 from './components/NewStep2';

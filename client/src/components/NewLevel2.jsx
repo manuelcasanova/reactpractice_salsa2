@@ -40,7 +40,7 @@ export default function NewLevel({levels, setLevels}) {
   return (
     <>
 
-      <div>
+      <div className="formtitle">
         New Level form
       </div>
 
@@ -49,14 +49,14 @@ export default function NewLevel({levels, setLevels}) {
         <form>
 
 
-          <div>Level name</div>
+          <div className="formcolumn">Level name</div>
           <input
             type="text"
             value={levelTitle}
             onChange={e => setLevelTitle(e.target.value)}
           />
 
-          <div>Level description</div>
+          <div className="formcolumn">Level description</div>
           <input
             type="text"
             value={levelDescription}

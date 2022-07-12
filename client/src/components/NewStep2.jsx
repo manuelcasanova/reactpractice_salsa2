@@ -58,22 +58,23 @@ export default function NewStep({ steps, setSteps, levels }) {
 
   return (
     <>
-      <div>New step form</div>
+      <div className="formtitle">New step form</div>
       <div className="newstepform">
 
         <form>
 
-          <div>Step name</div>
+          <div className="formcolumn">Step name</div>
           <input
             type="text"
             value={stepTitle}
             onChange={e => setStepTitle(e.target.value)}
           />
 
-          <div>Step level</div>
+          <div className="formcolumn">Step level</div>
           <select
             value={stepLevel}
             onChange={e => setStepLevel(e.target.value)}
+            className="selectlevel"
           >
             {levels.map((level) =>
               <option
@@ -86,26 +87,26 @@ export default function NewStep({ steps, setSteps, levels }) {
             )}
           </select>
 
-          <div>Step pronunciation (Mp3)</div>
+          {/* <div className="formcolumn">Step pronunciation (Mp3)</div>
           <input
             type="text"
             value={stepPronunciation}
             onChange={e => setStepPronunciation(e.target.value)}
           />
 
-          <div>Step video</div>
+          <div className="formcolumn">Step video</div>
           <input
             type="text"
             value={stepVideo}
             onChange={e => setStepVideo(e.target.value)}
           />
 
-          <div>Step video breakdown</div>
+          <div className="formcolumn">Step video breakdown</div>
           <input
             type="text"
             value={stepVideoBreakdown}
             onChange={e => setStepVideoBreakdown(e.target.value)}
-          />
+          /> */}
 
         </form>
 
