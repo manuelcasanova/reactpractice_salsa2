@@ -22,7 +22,7 @@ app.listen(port, () => {
 app.get("/steps", async (req, res) => {
   try {
     const getAllSteps = await pool.query(
-      'SELECT stepid, steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown, leveltitle FROM steps JOIN levels on levels.levelid = steps.steplevel_id'
+      'SELECT stepid, steptitle, steplevel_id, steppronunciation, stepvideo, stepvideobreakdown, leveltitle FROM steps JOIN levels on levels.levelid = steps.steplevel_id ORDER BY stepid DESC'
       );
     res.json(getAllSteps.rows);
   } catch (err) {
