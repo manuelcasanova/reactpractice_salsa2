@@ -1,4 +1,4 @@
-export default function EditLevel () {
+export default function EditLevel ({level, levels, setLevels}) {
   return (
     <div>
       Edit Level

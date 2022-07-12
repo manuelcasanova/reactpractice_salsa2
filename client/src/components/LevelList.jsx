@@ -37,7 +37,7 @@ export default function LevelList ({levels, setLevels}) {
           <tr key={level.levelid}>
             <td>{level.leveltitle}</td>
             <td>{level.levelid}</td>
-            <td><EditLevel levels={levels} setLevels={setLevels} /></td>
+            <td><EditLevel levels={levels} setLevels={setLevels} level={level} /></td>
             <td><button
               onClick={() => deleteLevel(level.levelid)}
               >
