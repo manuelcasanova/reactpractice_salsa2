@@ -86,3 +86,17 @@ app.put("/steps/:id", async (req, res) => {
   }
 })
 
+//Remove a level
+
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    console.log("Deleted level id:", id);
+    const deleteStep = await pool.query(
+      "DELETE FROM levels WHERE levelid = $1 RETURNING *", [id]
+    )
+    res.json("Level was deleted")
+  } catch (err) {
+    console.error(err.message)
+  }
+})
