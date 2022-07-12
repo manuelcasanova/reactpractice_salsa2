@@ -1,9 +1,7 @@
 import './App.css';
 import StepList from './components/StepList';
 import LevelList from './components/LevelList';
-import NewStep from './components/NewStep';
 import NewStep2 from './components/NewStep2';
-import NewLevel from './components/NewLevel';
 import NewLevel2 from './components/NewLevel2';
 import NavBar from './components/NavBar';
 

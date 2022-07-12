@@ -1,5 +1,4 @@
 import { useState } from "react"
-import StepList from "./StepList";
 import axios from "axios";
 
 const URL = 'http://localhost:8001'
