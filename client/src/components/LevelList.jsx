@@ -1,4 +1,23 @@
-export default function LevelList ({levels}) {
+import axios from "axios"
+
+
+const URL = 'http://localhost:8001'
+
+
+export default function LevelList ({levels, setLevels}) {
+  
+  
+  function deleteLevel(levelId) {
+    return axios.delete(`${URL}/levels/delete/${levelId}`)
+      .then(res => {
+        setLevels(levels.filter(level => level.levelid !== levelId))
+        console.log("Level deleted id:", levelId)
+      })
+      
+  } 
+  
+  
+  
   return (
     
     <>
@@ -19,7 +38,10 @@ export default function LevelList ({levels}) {
             <td>{level.leveltitle}</td>
             <td>{level.levelid}</td>
             <td>Edit</td>
-            <td>Delete</td>
+            <td><button
+              onClick={() => deleteLevel(level.levelid)}
+              >
+                Delete</button></td>
           </tr>)}
       </tbody>
 
