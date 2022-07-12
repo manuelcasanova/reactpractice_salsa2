@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import EditLevel from "./EditLevel"
 
 const URL = 'http://localhost:8001'
 
@@ -37,7 +37,7 @@ export default function LevelList ({levels, setLevels}) {
           <tr key={level.levelid}>
             <td>{level.leveltitle}</td>
             <td>{level.levelid}</td>
-            <td>Edit</td>
+            <td><EditLevel levels={levels} setLevels={setLevels} /></td>
             <td><button
               onClick={() => deleteLevel(level.levelid)}
               >
