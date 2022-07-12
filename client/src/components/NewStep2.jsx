@@ -3,10 +3,13 @@ import axios from "axios";
 
 export default function NewStep({ steps, setSteps, levels }) {
 
+//console.log(levels[0].leveltitle);
+
   const URL = 'http://localhost:8001'
 
   const [stepTitle, setStepTitle] = useState("");
   const [stepLevel, setStepLevel] = useState(1);
+  //const [stepLevel, setStepLevel] = useState({levels[0].leveltitle} || 1);
   const [stepPronunciation, setStepPronunciation] = useState("");
   const [stepVideo, setStepVideo] = useState("");
   const [stepVideoBreakdown, setStepVideoBreakdown] = useState("");

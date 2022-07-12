@@ -4,7 +4,7 @@ import EditLevel from "./EditLevel"
 const URL = 'http://localhost:8001'
 
 
-export default function LevelList ({levels, setLevels}) {
+export default function LevelList ({levels, setLevels, setSteps}) {
   
   
   function deleteLevel(levelId) {
@@ -37,7 +37,7 @@ export default function LevelList ({levels, setLevels}) {
           <tr key={level.levelid}>
             <td>{level.leveltitle}</td>
             <td>{level.levelid}</td>
-            <td><EditLevel levels={levels} setLevels={setLevels} level={level} /></td>
+            <td><EditLevel levels={levels} setLevels={setLevels} level={level} setSteps={setSteps}/></td>
             <td><button
               onClick={() => deleteLevel(level.levelid)}
               >

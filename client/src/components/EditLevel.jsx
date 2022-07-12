@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios'
 
-export default function EditLevel ({level, levels, setLevels}) {
+export default function EditLevel ({level, levels, setLevels, setSteps}) {
 
   const URL = 'http://localhost:8001'
 
@@ -22,6 +22,12 @@ export default function EditLevel ({level, levels, setLevels}) {
       .then(function (res) {
         setLevels([...res.data])
       })
+      axios.get(`${URL}/steps`)
+      .then(function (res) {
+        setSteps([...res.data])
+      })
+
+
       console.log(response)
     } catch (err) {
       console.error(err.message)
@@ -33,12 +39,12 @@ export default function EditLevel ({level, levels, setLevels}) {
   return (
     <div className='EditLevelModal'>
       {/* Button to Open the Modal */}
-      <button type="button" className="BUTTON_EDIT" data-toggle="modal" data-target={`#id${level.levelid}`}>
+      <button type="button" className="BUTTON_EDIT" data-toggle="modal" data-target="#editlevelmodal">
         Edit
       </button>
 
       {/* The Modal */}
-      <div className="modal" id={`id${level.levelid}`}>
+      <div className="modal" id="editlevelmodal">
         <div className="modal-dialog">
           <div className="modal-content">
 
