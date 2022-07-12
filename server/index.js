@@ -100,3 +100,16 @@ app.delete("/levels/delete/:id", async (req, res) => {
     console.error(err.message)
   }
 })
+
+//Add a level
+
+app.post("/levels", async (req, res) => {
+  try {
+    const {levelTitle, levelDescription} = req.body;
+    console.log("reqbody", req.body)
+    const newLevel = await pool.query("INSERT INTO levels (leveltitle, leveldescription) VALUES($1, $2) RETURNING *", [levelTitle, levelDescription])
+    res.json(newLevel.rows[0]);
+  } catch (err) {
+    console.error(err.message)
+  }
+})
