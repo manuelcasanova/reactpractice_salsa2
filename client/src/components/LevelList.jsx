@@ -21,7 +21,7 @@ export default function LevelList ({levels, setLevels, setSteps}) {
   return (
     
     <>
-    <div>Level list</div>
+    <div className="tabletitle">Level list</div>
     <table className="levellist_table">
       <thead>
         <tr>
@@ -39,6 +39,7 @@ export default function LevelList ({levels, setLevels, setSteps}) {
             <td>{level.levelid}</td>
             <td><EditLevel levels={levels} setLevels={setLevels} level={level} setSteps={setSteps}/></td>
             <td><button
+            className="button_delete"
               onClick={() => deleteLevel(level.levelid)}
               >
                 Delete</button></td>

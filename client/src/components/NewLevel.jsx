@@ -68,6 +68,7 @@ export default function NewLevel({levels, setLevels}) {
         </form>
 
         <button
+        className="button_submit"
           onClick={onSubmitForm}
         >Add</button>
 

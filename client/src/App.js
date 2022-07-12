@@ -5,6 +5,7 @@ import NewStep from './components/NewStep';
 import NewStep2 from './components/NewStep2';
 import NewLevel from './components/NewLevel';
 import NewLevel2 from './components/NewLevel2';
+import NavBar from './components/NavBar';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -36,9 +37,22 @@ function App() {
   return (
     <div className="App">
 
-      <NewStep2 steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels} />
+      <NavBar />
 
-      <NewLevel2 levels={levels} setLevels={setLevels} />
+<div className='add_step_and_level'>
+
+<div className="NewStepComponent">
+<NewStep2 steps={steps} setSteps={setSteps} levels={levels} setLevels={setLevels} />
+</div>
+
+<div className="NewLevelComponent">
+<NewLevel2 levels={levels} setLevels={setLevels} />
+</div>
+
+</div>
+
+
+
       <StepList steps={steps} setSteps={setSteps} levels={levels} />
       <LevelList levels={levels} setLevels={setLevels} setSteps={setSteps} />
 

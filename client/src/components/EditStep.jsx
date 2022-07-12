@@ -68,7 +68,7 @@ export default function EditStep({ step, levels, steps, setSteps }) {
   return (
     <div className='EditStepModal'>
       {/* Button to Open the Modal */}
-      <button type="button" className="BUTTON_EDIT" data-toggle="modal" data-target="#editstepmodal">
+      <button type="button" className="button_edit" data-toggle="modal" data-target="#editstepmodal">
         Edit
       </button>
 
@@ -116,8 +116,8 @@ export default function EditStep({ step, levels, steps, setSteps }) {
 
             {/* Modal footer */}
             <div className="modal-footer">
-              <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-danger" data-dismiss="modal"
+              <button type="button" className="button_close" data-dismiss="modal">Close</button>
+              <button type="button" className="button_edit" data-dismiss="modal"
                 onClick={e => editStep(e)}
               >Edit</button>
             </div>

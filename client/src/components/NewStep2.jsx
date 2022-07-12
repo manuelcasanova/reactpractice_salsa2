@@ -63,7 +63,8 @@ export default function NewStep({ steps, setSteps, levels }) {
     <div>
 
       {/* <!-- Button trigger modal --> */}
-      <button type="button" data-toggle="modal" data-target="#exampleModal">Add step
+      <button type="button" 
+      className="button_add" data-toggle="modal" data-target="#exampleModal">Add step
       </button>
 
       {/* <!-- Modal --> */}
@@ -106,10 +107,10 @@ export default function NewStep({ steps, setSteps, levels }) {
 
             </div>
             <div className="modal-footer">
-              <button type="button" className="Button_Close" data-dismiss="modal">Close</button>
+              <button type="button" className="button_close" data-dismiss="modal">Close</button>
               {/* <button type="button" className="btn btn-primary">Save</button> */}
               <button
-                className="Button_Submit"
+                className="button_submit"
                 type="Submit"
                 onClick={onSubmitForm}
                 /*to close modal after submission */

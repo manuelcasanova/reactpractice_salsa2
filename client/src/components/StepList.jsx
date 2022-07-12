@@ -6,7 +6,7 @@ const URL = 'http://localhost:8001'
 
 
 export default function StepList({ steps, setSteps, levels }) {
-  
+
 
   function deleteStep(stepId) {
     return axios.delete(`${URL}/delete/${stepId}`)
@@ -14,14 +14,14 @@ export default function StepList({ steps, setSteps, levels }) {
         setSteps(steps.filter(step => step.stepid !== stepId))
         console.log("Step deleted id:", stepId)
       })
-      
-  } 
-  
+
+  }
+
   return (
 
     <>
 
-      <div>
+      <div className="tabletitle">
         Step List
       </div>
 
@@ -42,9 +42,10 @@ export default function StepList({ steps, setSteps, levels }) {
               <td>{step.steptitle}</td>
               <td>{step.leveltitle}</td>
               <td>{step.stepid}</td>
-              <td><EditStep step={step} levels={levels} steps={steps} setSteps={setSteps}/></td>
+              <td><EditStep step={step} levels={levels} steps={steps} setSteps={setSteps} /></td>
               <td><button
-              onClick={() => deleteStep(step.stepid)}
+                className="button_delete"
+                onClick={() => deleteStep(step.stepid)}
               >
                 Delete</button></td>
             </tr>)}

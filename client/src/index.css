@@ -1,13 +1,87 @@
 body {
-  margin: 0;
+  margin: 2em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e7e7e7;
+  display: flex;
+align-items: center;
+justify-content: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.navbar {
+  color: black;
+  font-size: 3em;
+  /* background-color: rgb(162, 158, 158); */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.add_step_and_level {
+  display: flex;
+  justify-content: space-around;
+}
+
+.NewStepComponent, .NewLevelComponent {
+  margin: 2em;
+}
+
+.button_submit, .button_edit, .button_add {
+  border-radius: 5px;
+  padding: 6px 18px;
+  color: white;
+  border: none;
+  background-color: hwb(209 5% 27%);
+}
+
+.button_delete, .button_close {
+  border-radius: 5px;
+  padding: 6px 18px;
+  color: white;
+  border: none;
+  background-color: rgb(175, 8, 8);
+}
+
+.button_add {
+  border-radius: 5px;
+  padding: 6px 18px;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  background-color: rgb(26, 86, 13);
+}
+
+.button_submit {
+  border-radius: 5px;
+  padding: 6px 18px;
+  color: white;
+  border: none;
+  background-color: rgb(26, 86, 13);
+}
+
+.tabletitle {
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-style: dotted;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+th, td, tr {
+  padding: 1em
+}
+
+.levellist_table {
+  margin: auto;
 }

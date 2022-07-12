@@ -39,7 +39,7 @@ export default function EditLevel ({level, levels, setLevels, setSteps}) {
   return (
     <div className='EditLevelModal'>
       {/* Button to Open the Modal */}
-      <button type="button" className="BUTTON_EDIT" data-toggle="modal" data-target="#editlevelmodal">
+      <button type="button" className="button_edit" data-toggle="modal" data-target="#editlevelmodal">
         Edit
       </button>
 
@@ -77,8 +77,8 @@ export default function EditLevel ({level, levels, setLevels, setSteps}) {
 
             {/* Modal footer */}
             <div className="modal-footer">
-              <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-danger" data-dismiss="modal"
+              <button type="button" className="button_close" data-dismiss="modal">Close</button>
+              <button type="button" className="button_edit" data-dismiss="modal"
                 onClick={e => editLevel(e)}
               >Edit</button>
             </div>
