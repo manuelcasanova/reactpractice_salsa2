@@ -82,6 +82,6 @@ th, td, tr {
   padding: 1em
 }
 
-.levellist_table {
+.levellist_table, .steplist_table {
   margin: auto;
 }
