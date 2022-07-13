@@ -23,18 +23,18 @@ export default function EditStep({ step, levels, steps, setSteps }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       })
-      axios.get(`${URL}/steps`)
-      .then(function (res) {
-        setSteps([...res.data])
-        //console.log("axios res.data - steps State", res.data)
-      })
+      // axios.get(`${URL}/steps`)
+      // .then(function (res) {
+      //   setSteps([...res.data])
+      //   //console.log("axios res.data - steps State", res.data)
+      // })
 
       //Prints the array of objects containing the steps from the db
       //console.log("steps", steps)
 
       //Creates a copy of the edited step
-      //const editedStep = body;
-      //console.log("edited step", editedStep)
+      const editedStep = {...body, stepid: step.stepid, steptitle: body.stepTitle};
+      console.log("edited step", editedStep)
       
 
       //FIND: Would return the value of the first element that does not match the id. But we want all of them. Similar to map. Then we probably need FILTER. Gets all the elements in the array that do not match the id.
@@ -43,13 +43,29 @@ export default function EditStep({ step, levels, steps, setSteps }) {
 
       // const filteredSteps = steps.filter(step => step.steplevel_id !== editedStep.stepLevel_id)
 
-    //   const filteredSteps = steps.filter((step) => {
-    //     return step.steplevel_id !== editedStep.stepLevel_id
-    //   })
+      // const filteredSteps = steps.filter((step) => {
+      //   console.log("step object", step.stepid, step)
+      //   return step.stepid !== editedStep.stepid
+    
+      // })
+      
+      //filter reorders. map option 2: !!!!!!!!!!!!
 
-    //  console.log("filteredSteps", filteredSteps)
+      const updatedSteps = steps.map((step) => {
+        console.log("step object", step.stepid, step) 
+        if (step.stepid !== editedStep.stepid) {
+          console.log("Returning original")
+          return step
+        } else {
+          console.log("Returning modified", {...step, ...editedStep})
+          return {...step, ...editedStep}
+        }
+    
+      })
 
-      // setSteps([...steps, editedStep])
+     console.log("updatedSteps", updatedSteps)
+
+      setSteps(updatedSteps)
 
       // setSteps(list of steps in the db without the new step + edited step)
 

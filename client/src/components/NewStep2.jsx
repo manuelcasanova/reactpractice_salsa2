@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios";
 
 export default function NewStep({ steps, setSteps, levels }) {
@@ -7,9 +7,21 @@ export default function NewStep({ steps, setSteps, levels }) {
 
   const [stepTitle, setStepTitle] = useState("");
   const [stepLevel, setStepLevel] = useState(1);
+
+  //const [stepLevel, setStepLevel] = useState(levels[0].levelid || 1);
+
   const [stepPronunciation, setStepPronunciation] = useState("");
   const [stepVideo, setStepVideo] = useState("");
   const [stepVideoBreakdown, setStepVideoBreakdown] = useState("");
+
+useEffect (() => {
+  const foundLevel = levels.find((level)=> {
+    return level.levelid === stepLevel
+  })
+  if (!foundLevel && levels.length) {
+    setStepLevel(levels[0].levelid)
+  }
+}, [levels])
 
   function onSubmitForm(e) {
     e.preventDefault();
